@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote</title>
+
+    <style>
+
+        .widget {
+            padding: 5px 5px ;
+            color: #000000;
+            text-align: center;
+                max-width: 95%;
+            margin: auto;
+            font-variant-caps: petite-caps;
+            font-size: 2em;
+
+        }
+
+        div {
+             width: 95%;
+             min-height: 100px;
+
+            background:
+                linear-gradient(to right, black 4px, transparent 4px) 0 0,
+                linear-gradient(to right, black 4px, transparent 4px) 0 100%,
+                linear-gradient(to left, black 4px, transparent 4px) 100% 0,
+                linear-gradient(to left, black 4px, transparent 4px) 100% 100%,
+                linear-gradient(to bottom, black 4px, transparent 4px) 0 0,
+                linear-gradient(to bottom, black 4px, transparent 4px) 100% 0,
+                linear-gradient(to top, black 4px, transparent 4px) 0 100%,
+                linear-gradient(to top, black 4px, transparent 4px) 100% 100%;
+
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+}
+
+     
+    </style>
+</head>
+<body>
+
+    <div class="widget" id="widget"></div>
+
+
+<script>
+
+quotes=[
+"The power of imagination makes us infinite. - John Muir",
+"Shoot for the moon and if you miss, you will still be among the stars. - Les Brown",
+"If you can dream it, you can do it. - Tom Fitzgerald",
+"Keep your eyes on the stars, and your feet on the ground. - Theodore Roosevelt",
+"Not all who wander are lost. - J.R.R. Tolkien ",
+"It is better to be hated for what you are than to be loved for what you are not. - André Gide",
+"All endings are also beginnings. We just don't know it at the time. - Mitch Albom",
+"When you are imagining, you might as well imagine something worth while. - Lucy Maud Montgomery",
+"The worst enemy to creativity is self-doubt. - Sylvia Path",
+"Yes, I am a dreamer. For a dreamer is one who can only find his way by moonlight, and his punishment is that he sees the dawn before the rest of the world. - Oscar Wilde",
+"We are all in the gutter, but some of us are looking at the stars. - Oscar Wilde",
+"I dream. Sometimes I think that's the only right thing to do. - Haruki Murakami",
+"It is sometimes an appropriate response to reality to go insane. - Philip K. Dick",
+"If I got rid of my demons, I'd lose my angels. - Tennessee Williams",
+"One day I will find the right words, and they will be simple. - Jack Kerouac",
+"Whatever you do in life, surround yourself with smart people who'll argue with you. - John Wooden",
+"Do not go where the path may lead, go instead where there is no path and leave a trail. - Ralph Waldo Emerson",
+"The only true wisdom is in knowing you know nothing. - Socrates",
+"The greater danger for most of us lies not in setting our aim too high and falling short; but in setting out aim too low, and achieving our mark. - Michelangelo",
+"If you don't know where you are going, any road will get you there. - Lewis Carroll",
+];
+
+const INTERVAL = 86400000;
+
+function dispalyQuote(){
+
+    document.getElementById('widget').innerHTML =quotes[0];
+    quotes.forEach((quote, i) => {
+        setTimeout(() => {
+            document.getElementById('widget').innerHTML =quote;
+        }, i * INTERVAL);  
+    });
+    }
+
+    function dispalyWidget() {
+        dispalyQuote();
+        setTimeout(dispalyWidget, quotes.length*INTERVAL);
+    }
+    dispalyWidget()
+
+</script>
+
+</body>
+</html>
