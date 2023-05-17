@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quote</title>
+    <title>Quote Slider</title>
 
     <style>
 
@@ -16,38 +15,24 @@
             margin: auto;
             font-variant-caps: petite-caps;
             font-size: 2em;
-
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 5px 0 #ccc;
         }
 
-        div {
-             width: 95%;
-             min-height: 100px;
-
-            background:
-                linear-gradient(to right, white 4px, transparent 4px) 0 0,
-                linear-gradient(to right, white 4px, transparent 4px) 0 100%,
-                linear-gradient(to left, white 4px, transparent 4px) 100% 0,
-                linear-gradient(to left, white 4px, transparent 4px) 100% 100%,
-                linear-gradient(to bottom, white 4px, transparent 4px) 0 0,
-                linear-gradient(to bottom, white 4px, transparent 4px) 100% 0,
-                linear-gradient(to top, white 4px, transparent 4px) 0 100%,
-                linear-gradient(to top, white 4px, transparent 4px) 100% 100%;
-
-            background-repeat: no-repeat;
-            background-size: 20px 20px;
-}
-
-     
     </style>
 </head>
 <body>
 
-    <div class="widget" id="widget"></div>
-
+    <div class="widget">
+        <h1>Quote Slider</h1>
+        <p id="quote"></p>
+        <button id="next-quote">Next Quote</button>
+    </div>
 
 <script>
 
-quotes=[
+const quotes=[
 "The power of imagination makes us infinite.   John Muir",
 "Shoot for the moon and if you miss, you will still be among the stars.   Les Brown",
 "If you can dream it, you can do it.   Tom Fitzgerald",
@@ -72,21 +57,18 @@ quotes=[
 
 const INTERVAL = 60000;
 
-function dispalyQuote(){
+function displayQuote() {
+    document.getElementById("quote").innerHTML =quotes[quotes.indexOf(document.getElementById("quote").innerHTML) + 1];
+}
 
-    document.getElementById('widget').innerHTML =quotes[0];
-    quotes.forEach((quote, i) => {
-        setTimeout(() => {
-            document.getElementById('widget').innerHTML =quote;
-        }, i * INTERVAL);  
-    });
-    }
+function nextQuote() {
+    displayQuote();
+}
 
-    function dispalyWidget() {
-        dispalyQuote();
-        setTimeout(dispalyWidget, quotes.length*INTERVAL);
-    }
-    dispalyWidget()
+window.onload = function() {
+    displayQuote();
+    setInterval(nextQuote, INTERVAL);
+};
 
 </script>
 
