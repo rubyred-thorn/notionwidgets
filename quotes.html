@@ -68,11 +68,12 @@ const quotes=[
 const INTERVAL = 60000;
 
 function displayQuote() {
-    document.getElementById("quote").innerHTML =quotes[quotes.indexOf(document.getElementById("quote").innerHTML) + 1];
+   var index = quotes.indexOf(document.getElementById("quote").innerHTML);
+    document.getElementById("quote").innerHTML =quotes[index + 1];
 }
 
 function nextQuote() {
-    document.getElementById("quote").innerHTML =quotes[quotes.indexOf(document.getElementById("quote").innerHTML) + 1];
+    displayQuote();
 }
 
 window.onload = function() {
