@@ -72,7 +72,7 @@ function displayQuote() {
 }
 
 function nextQuote() {
-    displayQuote();
+    document.getElementById("quote").innerHTML =quotes[quotes.indexOf(document.getElementById("quote").innerHTML) + 1];
 }
 
 window.onload = function() {
