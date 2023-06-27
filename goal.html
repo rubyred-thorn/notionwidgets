@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Goal Widget</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    #widget-container {
+      display: flex;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #widget-container .slide {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #widget-container .slide .list {
+      width: 50%;
+      height: 100%;
+      overflow-y: auto;
+      border-right: 2px solid white;
+    }
+
+    #widget-container .slide .list ul {
+      padding-left: 20px;
+    }
+
+    #widget-container .slide .list li {
+      margin-bottom: 10px;
+    }
+
+    #widget-container .slide .list a {
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="widget-container">
+    <div class="slide">
+      <div class="list">
+        <h2>Goals</h2>
+        <ul>
+          <li>Goal 1</li>
+          <li>Goal 2</li>
+          <li>Goal 3</li>
+          <!-- Add more goals as needed -->
+        </ul>
+      </div>
+      <div class="list">
+        <h2>Ways to Achieve Goals</h2>
+        <ul>
+          <li><a href="https://example.com">Website 1</a></li>
+          <li><a href="https://example.com">Website 2</a></li>
+          <li><a href="https://example.com">Website 3</a></li>
+          <!-- Add more ways to achieve goals with helpful links -->
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const widgetContainer = document.getElementById('widget-container');
+    const slides = widgetContainer.getElementsByClassName('slide');
+    let currentSlide = 0;
+
+    function showSlide(slideIndex) {
+      if (slideIndex >= 0 && slideIndex < slides.length) {
+        for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = 'none';
+        }
+        slides[slideIndex].style.display = 'flex';
+        currentSlide = slideIndex;
+      }
+    }
+
+    function showNextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    function showPreviousSlide() {
+      showSlide(currentSlide - 1);
+    }
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'ArrowRight') {
+        showNextSlide();
+      } else if (event.key === 'ArrowLeft') {
+        showPreviousSlide();
+      }
+    });
+
+    showSlide(0);
+  </script>
+</body>
+</html>
