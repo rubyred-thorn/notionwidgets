@@ -26,18 +26,26 @@
       flex: 1;
       display: flex;
       flex-direction: row;
-      align-items: stretch; /* Adjusts the height of the lists to match each other */
+      align-items: stretch;
     }
 
-    #widget-container .slide .list {
+    #widget-container .slide .list-container {
       width: 50%;
       overflow-y: auto;
       border-right: 2px solid white;
-      padding: 10px; /* Adds spacing around the lists */
+      padding: 10px;
     }
 
-    #widget-container .slide .list:not(:last-child) {
-      margin-right: 5px; /* Adjusts the spacing between the lists */
+    #widget-container .slide .list-container:not(:last-child) {
+      margin-right: 5px;
+    }
+
+    #widget-container .slide .list {
+      margin-bottom: 20px;
+    }
+
+    #widget-container .slide .list:last-child {
+      margin-bottom: 0;
     }
 
     #widget-container .slide .list ul {
@@ -58,34 +66,46 @@
 <body>
   <div id="widget-container">
     <div class="slide">
-      <div class="list">
-        <h2>Goals</h2>
-        <ul>
-          <li>Goal 1</li>
-          <li>Goal 2</li>
-          <li>Goal 3</li>
-          <!-- Add more goals as needed -->
-        </ul>
+      <div class="list-container">
+        <div class="list">
+          <h2>Goals</h2>
+          <ul>
+            <li>Goal 1</li>
+            <li>Goal 2</li>
+            <li>Goal 3</li>
+            <!-- Add more goals as needed -->
+          </ul>
+        </div>
+        <div class="list">
+          <h2>Ways to Achieve Goals</h2>
+          <ul>
+            <li><a href="https://example.com">Website 1</a></li>
+            <li><a href="https://example.com">Website 2</a></li>
+            <li><a href="https://example.com">Website 3</a></li>
+            <!-- Add more ways to achieve goals with helpful links -->
+          </ul>
+        </div>
       </div>
-      <div class="list">
-        <h2>Ways to Achieve Goals</h2>
-        <ul>
-          <li><a href="https://example.com">Website 1</a></li>
-          <li><a href="https://example.com">Website 2</a></li>
-          <li><a href="https://example.com">Website 3</a></li>
-          <!-- Add more ways to achieve goals with helpful links -->
-        </ul>
+      <div class="list-container">
+        <div class="list">
+          <h2>Other List</h2>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <!-- Add more items as needed -->
+          </ul>
+        </div>
+        <div class="list">
+          <h2>More Ways to Achieve</h2>
+          <ul>
+            <li><a href="https://example.com">Website 4</a></li>
+            <li><a href="https://example.com">Website 5</a></li>
+            <li><a href="https://example.com">Website 6</a></li>
+            <!-- Add more ways to achieve goals with helpful links -->
+          </ul>
+        </div>
       </div>
-      <div class="list">
-        <h2>Other List</h2>
-        <ul>
-          <li>Item 1</li>
-          <li>Item 2</li>
-          <li>Item 3</li>
-          <!-- Add more items as needed -->
-        </ul>
-      </div>
-      <!-- Add more lists as needed -->
     </div>
   </div>
 
