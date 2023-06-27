@@ -22,15 +22,18 @@
       flex: 1;
       display: flex;
       flex-direction: row;
-      align-items: center;
-      justify-content: center;
+      align-items: stretch; /* Adjusts the height of the lists to match each other */
     }
 
     #widget-container .slide .list {
       width: 50%;
-      height: 100%;
       overflow-y: auto;
       border-right: 2px solid white;
+      padding: 10px; /* Adds spacing around the lists */
+    }
+
+    #widget-container .slide .list:not(:last-child) {
+      margin-right: 5px; /* Adjusts the spacing between the lists */
     }
 
     #widget-container .slide .list ul {
@@ -68,6 +71,16 @@
           <!-- Add more ways to achieve goals with helpful links -->
         </ul>
       </div>
+      <div class="list">
+        <h2>Other List</h2>
+        <ul>
+          <li>Item 1</li>
+          <li>Item 2</li>
+          <li>Item 3</li>
+          <!-- Add more items as needed -->
+        </ul>
+      </div>
+      <!-- Add more lists as needed -->
     </div>
   </div>
 
