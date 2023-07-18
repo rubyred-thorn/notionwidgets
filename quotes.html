@@ -80,6 +80,7 @@
             var currentIndex = quotes.indexOf(document.getElementById("quote").innerHTML);
             var prevIndex = (currentIndex - 1 + quotes.length) % quotes.length;
             displayQuote(prevIndex);
+        }
         
         function nextQuote() {
             var currentIndex = quotes.indexOf(document.getElementById("quote").innerHTML);
