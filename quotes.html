@@ -27,8 +27,41 @@
             flex-wrap: wrap;
         }
 
-        .widget p {
+        .quote-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px
+        }
+
+        .quote {
+            position: relative;
+            font-style: italic;
+            padding-left: 20px;
+            padding-right: 20px
+        }
+
+        .quote:before {
+            content: open-quote;
+            position: absolute;
+            top:-10px;
+            left: -5px;
+            font-size: 2em;
             color: #ffffff;
+        }
+
+        .quote:after {
+            content: close-quote;
+            position: absolute;
+            bottom: -10px;
+            right: -5px;
+            font-size: 2em;
+            color: #ffffff;
+        }
+
+        .author {
+            font-size: 1.2em;
+            margin-top: 10px;
         }
 
         .arrow-button {
@@ -47,7 +80,10 @@
 
     <div class="widget">
         <button class="arrow-button" id="prev-button">&larr;</button>
-        <p id="quote"></p>
+        <div class="quote-container">
+            <p class="quote" id="quote"></p>
+            <p class="author" id="author"></p>
+        </div>
         <button class="arrow-button" id="next-button">&rarr;</button>
     </div>
 
@@ -76,7 +112,9 @@
         ];
 
         function displayQuote(index) {
-            document.getElementById("quote").innerHTML = quotes[index];
+            const quoteParts = quotes[index].split(" —");
+            document.getElementById("quote").innerHTML = quotes[0];
+            document.getElementById("author").innerHTML = quoteParts[1];
         }
 
         const INTERVAL = 6 * 60 * 60 * 1000;
