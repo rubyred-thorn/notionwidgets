@@ -111,6 +111,8 @@
             "If you don't know where you are going, any road will get you there. —Lewis Carroll",
         ];
 
+        let currentIndex = 0;
+        
         function displayQuote(index) {
             const quoteParts = quotes[index].split(" —");
             document.getElementById("quote").innerHTML = quoteParts[0];
@@ -120,19 +122,17 @@
         const INTERVAL = 6 * 60 * 60 * 1000;
 
         function prevQuote() {
-            var currentIndex = quotes.indexOf(document.getElementById("quote").innerHTML);
-            var prevIndex = (currentIndex - 1 + quotes.length) % quotes.length;
-            displayQuote(prevIndex);
+            currentIndex = (currentIndex - 1 + quotes.length) % quotes.length;
+            displayQuote(currentIndex);
         }
         
         function nextQuote() {
-            var currentIndex = quotes.indexOf(document.getElementById("quote").innerHTML);
-            var nextIndex = (currentIndex + 1) % quotes.length;
-            displayQuote(nextIndex);
+            currentIndex = (currentIndex + 1) % quotes.length;
+            displayQuote(currentIndex);
         }
         
         window.onload = function () {
-            displayQuote(0);
+            displayQuote(currentIndex);
             setInterval(nextQuote, INTERVAL);
             document.getElementById("prev-button").addEventListener("click", prevQuote);
             document.getElementById("next-button").addEventListener("click", nextQuote);
