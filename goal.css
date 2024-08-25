@@ -6,6 +6,10 @@ body {
       padding: 0;
     }
 
+    h1 {
+      font-family: 'Bitter', Arial, sans-serif;
+    }
+
     h2 {
       font-family: 'Bitter', Arial, sans-serif;
     }
@@ -17,6 +21,7 @@ body {
     #widget-container {
       display: flex;
       align-items: center;
+      justify-content: center;
       height: 100vh;
       overflow: hidden;
     }
@@ -26,6 +31,7 @@ body {
       display: flex;
       flex-direction: row;
       align-items: stretch;
+      text-align: center;
     }
 
     #widget-container .slide .list-container {
@@ -68,7 +74,7 @@ body {
     }
 
     #widget-container .slide .list li.extra-spacing {
-      margin-top: 20px;
+      margin-top: 30px;
     }
 
     #widget-container .slide .list a {
